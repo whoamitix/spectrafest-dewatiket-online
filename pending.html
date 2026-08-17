@@ -214,34 +214,32 @@
     font-size: 12px;
   }
 
-  .countdown-box {
+  .wa-confirm-box {
     margin-top: 16px;
-    background: rgba(8, 8, 15, 0.5);
-    border: 1px dashed rgba(245, 158, 11, 0.35);
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px dashed rgba(37, 211, 102, 0.4);
     border-radius: 14px;
-    padding: 14px 18px;
-    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px;
+    display: flex; align-items: center; justify-content: center;
     gap: 12px;
+    text-align: center;
   }
-  .countdown-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: #FCD34D; }
-  .countdown-label i { font-size: 13px; }
-  .countdown-timer {
-    display: flex; align-items: center; gap: 6px;
-    font-family: 'Sora', sans-serif;
-    font-size: 18px; font-weight: 800;
-    color: #fff;
-    letter-spacing: 1px;
-    font-variant-numeric: tabular-nums;
+  .wa-confirm-box i {
+    font-size: 24px;
+    color: #25D366;
+    flex-shrink: 0;
   }
-  .countdown-timer .unit {
-    display: flex; flex-direction: column; align-items: center;
-    background: rgba(245, 158, 11, 0.12);
-    border-radius: 8px;
-    padding: 4px 8px;
-    min-width: 38px;
+  .wa-confirm-text {
+    font-size: 14px; color: #fff; font-weight: 600; line-height: 1.5;
   }
-  .countdown-timer .unit small { font-size: 8px; color: #FCD34D; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 1px; }
-  .countdown-timer .sep { color: var(--warning); }
+  .wa-confirm-text strong {
+    color: #25D366; 
+    font-weight: 800;
+    font-size: 16px;
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
 
   .ticket-card {
     background: var(--card-bg);
@@ -503,7 +501,7 @@
     left: 0; right: 0; bottom: 0;
     background: rgba(8, 8, 15, 0.9);
     backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
     padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
     border-top: 1px solid var(--card-border);
     z-index: 1000;
@@ -563,9 +561,6 @@
     .ticket-info-grid { grid-template-columns: 1fr; gap: 16px; }
     .pending-hero h1 { font-size: 28px; }
     .topbar-chip { display: none; }
-    .countdown-box { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .countdown-timer { font-size: 16px; }
-    .countdown-timer .unit { min-width: 34px; padding: 3px 6px; }
     .help-box { flex-direction: column; align-items: flex-start; }
     .help-btn { align-self: stretch; text-align: center; padding: 12px; justify-content: center; }
   }
@@ -592,8 +587,8 @@
     <div class="pending-badge">
       <i class="fa-solid fa-circle"></i> Pembayaran Pending
     </div>
-    <h1>Pembayaran <span class="grad">Tertunda</span></h1>
-    <p>Transaksi QRIS belum dapat diselesaikan karena telah mencapai batas limit. Jangan khawatir, dana Anda yang sempat terpotong akan dikembalikan otomatis.</p>
+    <h1>Pembelian <span class="grad">Tertunda</span></h1>
+    <p>Pembelian tiket Anda dalam status pending. Silakan konfirmasi melalui Admin WhatsApp untuk proses lebih lanjut.</p>
   </div>
 
   <div class="alert-box">
@@ -607,17 +602,11 @@
       kerja. Pastikan untuk memeriksa mutasi rekening Anda secara berkala.
     </div>
 
-    <div class="countdown-box">
-      <div class="countdown-label">
-        <i class="fa-solid fa-hourglass-half"></i>
-        <span>Estimasi Refund</span>
-      </div>
-      <div class="countdown-timer" id="countdown">
-        <div class="unit"><span id="hours">23</span><small>Jam</small></div>
-        <span class="sep">:</span>
-        <div class="unit"><span id="minutes">59</span><small>Menit</small></div>
-        <span class="sep">:</span>
-        <div class="unit"><span id="seconds">59</span><small>Detik</small></div>
+    <div class="wa-confirm-box">
+      <i class="fa-brands fa-whatsapp"></i>
+      <div class="wa-confirm-text">
+        Konfirmasi Pembayaran via WhatsApp Admin:
+        <strong>0823-7997-7693</strong>
       </div>
     </div>
   </div>
@@ -670,7 +659,7 @@
   <div class="action-row">
     <a href="index.html" class="action-chip"><i class="fa-solid fa-house"></i> Beranda</a>
     <a href="qris.html" class="action-chip"><i class="fa-solid fa-rotate"></i> Coba Bayar Lagi</a>
-    <a href="https://wa.me/6281234567890" target="_blank" class="action-chip"><i class="fa-brands fa-whatsapp"></i> Bantuan</a>
+    <a href="https://wa.me/6282379977693" target="_blank" class="action-chip"><i class="fa-brands fa-whatsapp"></i> Bantuan</a>
   </div>
 
   <div class="help-box">
@@ -679,7 +668,7 @@
       <strong>Butuh bantuan dengan transaksi Anda?</strong>
       <span>Hubungi support kami via WhatsApp untuk bantuan refund dan pembayaran ulang.</span>
     </div>
-    <a href="https://wa.me/6281234567890" target="_blank" class="help-btn">
+    <a href="https://wa.me/6282379977693" target="_blank" class="help-btn">
       <i class="fa-brands fa-whatsapp"></i> Hubungi
     </a>
   </div>
@@ -691,8 +680,8 @@
     <a href="index.html" class="btn btn-secondary">
       <i class="fa-solid fa-house"></i> Beranda
     </a>
-    <a href="qris.html" class="btn btn-primary">
-      <i class="fa-solid fa-rotate"></i> Bayar Ulang
+    <a href="https://wa.me/6282379977693" target="_blank" class="btn btn-primary">
+      <i class="fa-brands fa-whatsapp"></i> Konfirmasi Admin
     </a>
   </div>
 </div>
@@ -738,23 +727,15 @@
       let remaining = duration - elapsed;
 
       if (remaining <= 0) {
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
         return;
       }
 
       const h = Math.floor(remaining / 3600);
       const m = Math.floor((remaining % 3600) / 60);
       const s = remaining % 60;
-
-      document.getElementById('hours').textContent = h < 10 ? '0' + h : h;
-      document.getElementById('minutes').textContent = m < 10 ? '0' + m : m;
-      document.getElementById('seconds').textContent = s < 10 ? '0' + s : s;
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 1000);
   })();
 </script>
 
