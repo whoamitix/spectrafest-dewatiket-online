@@ -1,1 +1,467 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Spectra Fest 2026 - Konser Dewa 19 ft. Ari Lasso & Ello. 05 Desember 2026 di Lapangan Niti Mandala Renon, Denpasar.">
+<title>Spectra Fest 2026 — Dewa 19 ft. Ari Lasso & Ello | DewaTiket.id</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="preload" as="image" href="poster.jpg" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎟️</text></svg>">
+
+<style>
+:root{
+    --bg-primary:#0a0a0f;
+    --bg-card:rgba(28,28,38,.6);
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.15);
+    --text-primary:#ffffff;
+    --text-secondary:rgba(255,255,255,.72);
+    --text-muted:rgba(255,255,255,.5);
+    --accent-gold:#f5b800;
+    --accent-red:#e50024;
+    --gradient-gold:linear-gradient(135deg,#f5b800 0%,#d4950a 100%);
+    --gradient-red:linear-gradient(135deg,#e50024 0%,#990018 100%);
+    --gradient-card:linear-gradient(145deg,rgba(40,40,55,.55) 0%,rgba(20,20,28,.55) 100%);
+    --shadow-card:0 10px 30px rgba(0,0,0,.3);
+    --radius:16px;
+    --radius-lg:22px;
+    --transition:all .3s cubic-bezier(.4,0,.2,1);
+    --header-h:70px;
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    min-height:100vh;
+    padding-bottom:calc(120px + var(--safe-bottom));
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+    content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background-image:url('background.jpg');
+    background-size:cover;background-position:center;opacity:0.15;
+}
+
+body::after{
+    content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(229,0,36,.12),transparent 40%),
+        radial-gradient(circle at 85% 80%,rgba(245,184,0,.08),transparent 45%),
+        linear-gradient(180deg, rgba(10,10,15,.85), rgba(10,10,15,.95));
+}
+
+.header{
+    position:sticky;top:0;z-index:1000;
+    height:calc(var(--header-h) + var(--safe-top));
+    padding:var(--safe-top) 24px 0;
+    background:rgba(10,10,15,.85);
+    backdrop-filter:blur(20px) saturate(180%);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid var(--border);
+}
+
+.header-left,.header-right{width:80px;display:flex;align-items:center}
+.header-left{justify-content:flex-start}
+.header-right{justify-content:flex-end}
+
+.logo-img{height:32px;width:auto;display:block}
+.logo{text-decoration:none;display:flex;align-items:center}
+.icon-btn{
+    width:40px;height:40px;border:1px solid var(--border);
+    background:rgba(255,255,255,.03);color:#fff;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:var(--transition);font-size:16px;
+}
+.icon-btn:hover{background:rgba(255,255,255,.08);border-color:var(--border-strong);color:var(--accent-gold)}
+
+.container{width:100%;max-width:800px;margin:auto;padding:32px 20px 0}
+
+.hero{position:relative;border-radius:var(--radius-lg);overflow:hidden;margin:0 auto 28px;max-width:380px;box-shadow:var(--shadow-card);border:1px solid rgba(245,184,0,.2)}
+.poster{width:100%;height:auto;display:block;transition:transform 1.2s ease}
+.hero:hover .poster{transform:scale(1.05)}
+.hero-overlay{position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(10,10,15,.95),transparent);pointer-events:none}
+.event-badges{position:absolute;top:16px;left:16px;right:16px;display:flex;gap:8px;flex-wrap:wrap;z-index:2}
+.badge{background:rgba(10,10,15,.7);backdrop-filter:blur(10px);border:1px solid var(--border-strong);color:#fff;padding:6px 14px;border-radius:30px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.badge.live{background:var(--gradient-red);border-color:transparent;box-shadow:0 4px 15px rgba(229,0,36,.4)}
+.badge.live::before{content:'';display:inline-block;width:6px;height:6px;background:#fff;border-radius:50%;margin-right:6px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.event-title{font-family:'Sora',sans-serif;font-size:42px;line-height:1.1;font-weight:800;margin-bottom:24px;letter-spacing:-1px;text-align:center;background:linear-gradient(180deg,#fff,rgba(255,255,255,.8));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+.exclusive-card{position:relative;background:var(--gradient-card);border:1px solid rgba(245,184,0,.3);border-radius:var(--radius-lg);padding:28px 24px;margin-bottom:32px;text-align:center;overflow:hidden;box-shadow:0 10px 40px rgba(245,184,0,.15)}
+.exclusive-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(245,184,0,.1),transparent 60%);animation:rotateBg 20s linear infinite;pointer-events:none}
+@keyframes rotateBg{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.exc-label{display:inline-flex;align-items:center;gap:8px;background:rgba(245,184,0,.15);border:1px solid var(--accent-gold);color:var(--accent-gold);padding:6px 16px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;position:relative;z-index:2}
+.exc-label i{font-size:8px;animation:pulse 1.5s infinite}
+.exc-title{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;line-height:1.2;background:var(--gradient-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;position:relative;z-index:2}
+.exc-desc{font-size:13px;color:var(--text-secondary);max-width:320px;margin:0 auto;position:relative;z-index:2;line-height:1.5}
+
+.event-info{display:flex;flex-direction:column;gap:14px;margin-bottom:30px;padding:24px;background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--radius-lg)}
+.info-row{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:500}
+.info-icon{width:42px;height:42px;min-width:42px;background:rgba(245,184,0,.1);border:1px solid rgba(245,184,0,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold)}
+.instagram{color:var(--accent-gold);font-weight:600}
+.share-btn{width:100%;border:1px solid var(--border-strong);background:rgba(255,255,255,.03);color:var(--accent-gold);font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;padding:14px;border-radius:12px;transition:var(--transition);margin-top:8px}
+.share-btn:hover{background:rgba(245,184,0,.08);border-color:var(--accent-gold)}
+
+.section{margin-bottom:40px;opacity:0;transform:translateY(20px);transition:all .8s ease}
+.section.visible{opacity:1;transform:translateY(0)}
+.section-title{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;margin-bottom:20px;letter-spacing:-.5px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:'';width:4px;height:26px;background:var(--gradient-gold);border-radius:2px}
+
+.card{background:var(--gradient-card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-card)}
+.card h3{font-size:20px;margin-bottom:16px;font-weight:700;font-family:'Sora',sans-serif}
+.card p{font-size:15px;line-height:1.7;margin-bottom:16px;color:var(--text-secondary)}
+.bold{font-weight:700;color:#fff}
+
+.lineup-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.lineup-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);font-size:18px;font-weight:700;transition:var(--transition)}
+.lineup-item:hover{padding-left:8px;color:var(--accent-gold)}
+.lineup-item:last-child{border-bottom:0}
+.lineup-num{width:38px;height:38px;min-width:38px;background:var(--gradient-red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff}
+.lineup-item:last-child .lineup-num{background:transparent;border:1px dashed var(--border-strong);color:var(--accent-gold)}
+
+.terms ol{padding-left:24px;list-style:none;counter-reset:term}
+.terms li{font-size:14px;line-height:1.6;margin-bottom:14px;padding-left:12px;color:var(--text-secondary);counter-increment:term;position:relative}
+.terms li::before{content:counter(term);position:absolute;left:-24px;top:0;width:20px;height:20px;background:var(--gradient-red);border-radius:50%;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.seatmap{width:100%;height:auto;display:block;border-radius:var(--radius)}
+
+.ticket-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-card)}
+.ticket-heading{display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:1px;color:var(--text-muted)}
+.ticket-heading-badge{background:var(--gradient-gold);color:#000;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;display:inline-flex;align-items:center;gap:6px}
+.ticket-heading-badge::before{content:'';width:5px;height:5px;background:#000;border-radius:50%;animation:pulse 1.5s infinite}
+
+.ticket{background:linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:var(--transition);position:relative;overflow:hidden}
+.ticket::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gradient-gold);transform:scaleY(0);transition:transform .3s ease}
+.ticket:hover{background:rgba(255,255,255,.06);border-color:rgba(245,184,0,.2)}
+.ticket.active{background:rgba(245,184,0,.05);border-color:rgba(245,184,0,.3)}
+.ticket.active::before{transform:scaleY(1)}
+
+.ticket-info{min-width:0;flex:1}
+.ticket-name{font-size:16px;font-weight:700;margin-bottom:4px;color:#fff}
+.ticket-sub{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+.ticket-stock{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;background:rgba(229,0,36,.15);color:#ff5070;border:1px solid rgba(229,0,36,.3);text-transform:uppercase;letter-spacing:.5px}
+.ticket-stock.pulse-anim{animation:pulseStock 1.5s infinite}
+@keyframes pulseStock{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.ticket-stock.shake-anim{animation:shake 2s infinite}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}
+
+.ticket-price{font-size:18px;font-weight:800;background:var(--gradient-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+.ticket-controls{display:flex;align-items:center;gap:8px;flex-shrink:0;background:rgba(0,0,0,.3);padding:4px;border-radius:12px;border:1px solid var(--border)}
+.qty-btn{width:34px;height:34px;border-radius:8px;border:none;background:rgba(255,255,255,.05);color:#fff;font-size:18px;cursor:pointer;transition:var(--transition);-webkit-appearance:none;appearance:none;display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--gradient-red)}
+.qty-btn:active{transform:scale(.92)}
+.qty{min-width:24px;text-align:center;font-size:15px;font-weight:700;color:#fff}
+
+.bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:1000;background:rgba(10,10,15,.9);backdrop-filter:blur(24px) saturate(180%);padding:16px 20px calc(16px + var(--safe-bottom));border-top:1px solid var(--border)}
+.bottom-inner{max-width:800px;margin:auto;height:75px;background:rgba(255,255,255,.97);border-radius:16px;overflow:hidden;display:flex;align-items:stretch;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.bottom-price{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 24px;color:#111;min-width:0}
+.bottom-label{font-size:10px;font-weight:700;color:#666;margin-bottom:2px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.qty-badge{background:var(--accent-red);color:#fff;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;display:none}
+.qty-badge.show{display:inline-block;animation:popIn .3s}
+@keyframes popIn{0%{transform:scale(0)}80%{transform:scale(1.1)}100%{transform:scale(1)}}
+.bottom-total{font-size:24px;font-weight:800;letter-spacing:-.5px;font-variant-numeric:tabular-nums;font-family:'Sora',sans-serif}
+.bottom-total.bump{animation:bump .3s}
+@keyframes bump{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+.buy-btn{width:40%;border:0;background:var(--gradient-red);color:#fff;font-size:14px;font-weight:800;cursor:pointer;transition:var(--transition);-webkit-appearance:none;appearance:none;padding:0 20px;white-space:nowrap;letter-spacing:1px;text-transform:uppercase;font-family:'Sora',sans-serif}
+.buy-btn:hover{box-shadow:0 0 25px rgba(229,0,36,.5)}
+.buy-btn:active{transform:scale(.98)}
+
+.loading-overlay{position:fixed;inset:0;z-index:9999;background:rgba(10,10,15,.95);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;opacity:0;visibility:hidden;transition:opacity .4s}
+.loading-overlay.active{opacity:1;visibility:visible}
+.loader{width:70px;height:70px;position:relative}
+.loader div{position:absolute;inset:0;border:3px solid transparent;border-radius:50%}
+.loader div:nth-child(1){border-top-color:var(--accent-gold);animation:spin 1s linear infinite}
+.loader div:nth-child(2){inset:8px;border-right-color:var(--accent-red);animation:spin 1.5s linear infinite reverse}
+.loader div:nth-child(3){inset:16px;border-bottom-color:#fff;animation:spin 2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:16px;font-weight:700;letter-spacing:1px}
+.loading-dots::after{content:'';animation:dots 1.5s steps(4) infinite}
+@keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
+
+.toast{position:fixed;top:calc(80px + var(--safe-top));left:50%;transform:translateX(-50%) translateY(-100px);background:var(--gradient-red);color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:600;z-index:3000;opacity:0;transition:transform .4s,opacity .4s;max-width:90vw;text-align:center;box-shadow:0 10px 30px rgba(229,0,36,.3)}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+.to-top{position:fixed;bottom:calc(120px + var(--safe-bottom));right:20px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid var(--border-strong);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;opacity:0;visibility:hidden;transform:translateY(20px);transition:var(--transition)}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+@media(max-width:600px){
+    .event-title{font-size:32px}.exc-title{font-size:26px}.section-title{font-size:22px}
+    .bottom-inner{height:65px}.bottom-total{font-size:20px}.buy-btn{font-size:12px}
+    .ticket-controls{gap:4px}.qty-btn{width:30px;height:30px;font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <button type="button" class="icon-btn" onclick="window.history.length > 1 ? window.history.back() : location.href='index.html'" aria-label="Kembali">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+    </div>
+    <a href="index.html" class="logo"><img src="logo.png" alt="DewaTiket" class="logo-img"></a>
+    <div class="header-right">
+        <button type="button" class="icon-btn" onclick="showToast('Fitur pencarian segera hadir 🔍')" aria-label="Cari">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="icon-btn" onclick="showToast('Menu segera hadir ☰')" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+<main class="container">
+    <div class="hero">
+        <div class="event-badges">
+            <span class="badge live">Konser</span>
+            <span class="badge">05 Des 2026</span>
+            <span class="badge">Bali</span>
+        </div>
+        <img src="poster.jpg" alt="Poster Spectra Fest 2026" class="poster" loading="eager" fetchpriority="high">
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <h1 class="event-title">Spectra Fest 2026</h1>
+    
+    <div class="exclusive-card">
+        <div class="exc-label"><i class="fa-solid fa-circle"></i> Limited Release</div>
+        <h2 class="exc-title">20 TIKET TAMBAHAN</h2>
+        <p class="exc-desc">Kesempatan terakhir untuk memiliki tiket eksklusif. Tambahan stok terbatas, amankan tempatmu sekarang sebelum habis terjual.</p>
+    </div>
+    
+    <div class="event-info">
+        <div class="info-row">
+            <span class="info-icon"><i class="fa-solid fa-calendar-days"></i></span>
+            <span>Sabtu, 05 Desember 2026</span>
+        </div>
+        <div class="info-row">
+            <span class="info-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <span>Lapangan Niti Mandala Renon — Denpasar</span>
+        </div>
+        <div class="info-row">
+            <span class="info-icon"><i class="fa-solid fa-instagram"></i></span>
+            <span class="instagram">@spectrafest.official</span>
+        </div>
+        <button type="button" class="share-btn" onclick="shareEvent()">
+            <i class="fa-solid fa-share-nodes"></i>
+            Bagikan Event
+        </button>
+    </div>
+    
+    <section class="section" id="about">
+        <h2 class="section-title">Tentang Event</h2>
+        <div class="card">
+            <h3>Spectra Festival 2026</h3>
+            <p>Bukan sekadar tentang siapa yang tampil di atas panggung, tetapi tentang bagaimana satu malam mampu menyatukan ribuan orang dalam energi yang sama. Spectra Fest 2026 hadir sebagai perayaan musik, nostalgia, dan pengalaman.</p>
+            <p>Tahun ini, <span class="bold">Dewa 19 ft. Ari Lasso & Ello</span> mempersembahkan penampilan spesial. Perpaduan legenda yang telah melahirkan karya abadi dan menjadi soundtrack berbagai generasi.</p>
+            <p>Masih akan ada deretan <span class="bold">Special Guest Star</span> yang segera diumumkan. Nama-nama terbaik akan melengkapi kemeriahan Spectra Fest 2026.</p>
+            <p>General Sale dibuka 13 Agustus 2026 hanya di DewaTiket.id</p>
+            <p><span class="bold">Headliner:</span> Dewa 19 ft. Ari Lasso & Ello<br><span class="bold">Special Guest Star:</span> TBA</p>
+        </div>
+    </section>
+    
+    <section class="section" id="lineup">
+        <h2 class="section-title">Line Up</h2>
+        <div class="lineup-card">
+            <div class="lineup-item"><span class="lineup-num">1</span><span>Dewa 19 ft. Ari Lasso & Ello</span></div>
+            <div class="lineup-item"><span class="lineup-num">?</span><span>Special Guest Star (TBA)</span></div>
+        </div>
+    </section>
+    
+    <section class="section" id="terms">
+        <h2 class="section-title">Syarat & Ketentuan</h2>
+        <div class="card terms">
+            <ol>
+                <li>Tiket HANYA dibeli melalui dewatiket.id.</li>
+                <li>Pembelian di luar dewatiket.id TIDAK MENJADI TANGGUNG JAWAB PROMOTOR.</li>
+                <li>Usia ≤ 12 tahun WAJIB didampingi orang tua/wali.</li>
+                <li>Anak usia ≥ 5 tahun wajib membeli tiket.</li>
+                <li>Harga sudah termasuk pajak.</li>
+                <li>Isi data SESUAI identitas diri.</li>
+                <li>Tiket yang sudah dibeli TIDAK dapat dikembalikan (NO REFUND).</li>
+                <li>QR Code muncul pada periode penukaran gelang & hanya dapat di-scan 1 kali.</li>
+                <li>Gelang tiket untuk <span class="bold">Single Entry</span>.</li>
+            </ol>
+        </div>
+    </section>
+    
+    <section class="section" id="seatmap">
+        <h2 class="section-title">Denah Tiket</h2>
+        <div class="card" style="padding:10px">
+            <img src="seatmap.jpg" alt="Denah Tiket" class="seatmap" loading="lazy">
+        </div>
+    </section>
+    
+    <section class="section" id="tickets">
+        <h2 class="section-title">Pilih Tiket</h2>
+        <div class="ticket-box" id="ticketBox">
+            <div class="ticket-heading">
+                <span>Presale Tickets</span>
+                <span class="ticket-heading-badge">Tersedia</span>
+            </div>
+            <div class="ticket" id="ticket-presaleFest">
+                <div class="ticket-info">
+                    <div class="ticket-name">Presale — Festival</div>
+                    <div class="ticket-price">Rp220.000</div>
+                    <div class="ticket-sub">Akses area Festival · Berdiri</div>
+                    <div class="ticket-stock pulse-anim">⚠️ Tersisa 7 Tiket</div>
+                </div>
+                <div class="ticket-controls">
+                    <button type="button" class="qty-btn" onclick="changeQty('presaleFest',-1)">−</button>
+                    <span class="qty" id="presaleFest">0</span>
+                    <button type="button" class="qty-btn" onclick="changeQty('presaleFest',1)">+</button>
+                </div>
+            </div>
+            <div class="ticket" id="ticket-presaleSuperFest">
+                <div class="ticket-info">
+                    <div class="ticket-name">Presale — Super Festival</div>
+                    <div class="ticket-price">Rp330.000</div>
+                    <div class="ticket-sub">Akses depan panggung · Berdiri</div>
+                    <div class="ticket-stock shake-anim">⚠️ Tersisa 12 Tiket</div>
+                </div>
+                <div class="ticket-controls">
+                    <button type="button" class="qty-btn" onclick="changeQty('presaleSuperFest',-1)">−</button>
+                    <span class="qty" id="presaleSuperFest">0</span>
+                    <button type="button" class="qty-btn" onclick="changeQty('presaleSuperFest',1)">+</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<button type="button" class="to-top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<div class="bottom-bar">
+    <div class="bottom-inner">
+        <div class="bottom-price">
+            <div class="bottom-label">
+                <span id="labelText">Mulai Dari</span>
+                <span class="qty-badge" id="qtyBadge">0 tiket</span>
+            </div>
+            <div class="bottom-total" id="bottomPrice">Rp220.000</div>
+        </div>
+        <button type="button" class="buy-btn" id="buyBtn" onclick="buyTicket()">Beli Tiket</button>
+    </div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loader"><div></div><div></div><div></div></div>
+    <div class="loading-text">Memproses Pesanan<span class="loading-dots"></span></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const tickets = { presaleFest: {p:220000,q:0,n:"Presale - Festival"}, presaleSuperFest: {p:330000,q:0,n:"Presale - Super Festival"} };
+const MAX_QTY = 10, MIN_P = 220000;
+const $ = id => document.getElementById(id);
+const priceEl = $("bottomPrice"), badgeEl = $("qtyBadge"), labelEl = $("labelText"), buyBtnEl = $("buyBtn"), toastEl = $("toast"), toTopEl = $("toTop");
+let toastTimer;
+
+const rupiah = n => "Rp" + n.toLocaleString("id-ID");
+
+function showToast(m) {
+    toastEl.textContent = m;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2800);
+}
+
+function updateTotal() {
+    let t = 0, c = 0;
+    for (const v of Object.values(tickets)) { t += v.p * v.q; c += v.q; }
+    priceEl.textContent = rupiah(c ? t : MIN_P);
+    priceEl.classList.remove("bump");
+    void priceEl.offsetWidth;
+    if (c > 0) priceEl.classList.add("bump");
+    badgeEl.textContent = c + " tiket";
+    badgeEl.classList.toggle("show", c > 0);
+    labelEl.textContent = c > 0 ? "Total" : "Mulai Dari";
+    buyBtnEl.textContent = c > 0 ? `Beli ${c} Tiket` : "Beli Tiket";
+}
+
+function changeQty(type, change) {
+    const t = tickets[type];
+    if (!t) return;
+    const q = Math.max(0, Math.min(MAX_QTY, t.q + change));
+    if (q === t.q) { if (change > 0) showToast("Maksimal " + MAX_QTY + " tiket"); return; }
+    t.q = q;
+    $(type).textContent = q;
+    $("ticket-" + type).classList.toggle("active", q > 0);
+    updateTotal();
+}
+
+function buyTicket() {
+    const sel = []; let tot = 0;
+    for (const [type, t] of Object.entries(tickets)) {
+        if (t.q) { sel.push({type, name: t.n, qty: t.q, price: t.p}); tot += t.q * t.p; }
+    }
+    if (!sel.length) {
+        showToast("⚠️ Silakan pilih jumlah tiket terlebih dahulu!");
+        $("tickets").scrollIntoView({behavior:"smooth", block:"start"});
+        return;
+    }
+    try {
+        localStorage.setItem("selectedTickets", JSON.stringify(sel));
+        localStorage.setItem("ticketTotal", String(tot));
+    } catch(e) { showToast("Gagal menyimpan pesanan"); return; }
+    
+    $("loadingOverlay").classList.add("active");
+    setTimeout(() => { location.href = "./form.html"; }, 1500);
+}
+
+async function shareEvent() {
+    const d = {title:"Spectra Fest 2026", text:"Spectra Fest 2026 - 05 Desember 2026, Lapangan Niti Mandala Renon Denpasar", url:location.href};
+    if (navigator.share) { try { await navigator.share(d); } catch(e) {} return; }
+    try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(location.href);
+        else {
+            const ta = document.createElement("textarea");
+            ta.value = location.href;
+            ta.style.cssText = "position:fixed;opacity:0;left:-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            ta.remove();
+        }
+        showToast("Link event berhasil disalin ✓");
+    } catch(e) { showToast("Gagal menyalin link"); }
+}
+
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add("visible"); obs.unobserve(en.target); }
+    });
+}, {threshold: 0.1});
+
+window.addEventListener("scroll", () => {
+    toTopEl.classList.toggle("show", window.pageYOffset > 500);
+}, {passive: true});
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateTotal();
+    document.querySelectorAll(".section").forEach(s => obs.observe(s));
+});
+</script>
+</body>
+</html>
