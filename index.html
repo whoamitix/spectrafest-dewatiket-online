@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -320,7 +319,7 @@ body::after{
             <div class="ticket" id="ticket-presaleFest">
                 <div class="ticket-info">
                     <div class="ticket-name">Presale — Festival</div>
-                    <div class="ticket-price">Rp220.000</div>
+                    <div class="ticket-price">Rp270.000</div>
                     <div class="ticket-sub">Akses area Festival · Berdiri</div>
                     <div class="ticket-stock pulse-anim">⚠️ Tersisa 7 Tiket</div>
                 </div>
@@ -333,7 +332,7 @@ body::after{
             <div class="ticket" id="ticket-presaleSuperFest">
                 <div class="ticket-info">
                     <div class="ticket-name">Presale — Super Festival</div>
-                    <div class="ticket-price">Rp330.000</div>
+                    <div class="ticket-price">Rp420.000</div>
                     <div class="ticket-sub">Akses depan panggung · Berdiri</div>
                     <div class="ticket-stock shake-anim">⚠️ Tersisa 12 Tiket</div>
                 </div>
@@ -358,7 +357,7 @@ body::after{
                 <span id="labelText">Mulai Dari</span>
                 <span class="qty-badge" id="qtyBadge">0 tiket</span>
             </div>
-            <div class="bottom-total" id="bottomPrice">Rp220.000</div>
+            <div class="bottom-total" id="bottomPrice">Rp270.000</div>
         </div>
         <button type="button" class="buy-btn" id="buyBtn" onclick="buyTicket()">Beli Tiket</button>
     </div>
@@ -372,8 +371,8 @@ body::after{
 <div class="toast" id="toast"></div>
 
 <script>
-const tickets = { presaleFest: {p:220000,q:0,n:"Presale - Festival"}, presaleSuperFest: {p:330000,q:0,n:"Presale - Super Festival"} };
-const MAX_QTY = 10, MIN_P = 220000;
+const tickets = { presaleFest: {p:270000,q:0,n:"Presale - Festival"}, presaleSuperFest: {p:420000,q:0,n:"Presale - Super Festival"} };
+const MAX_QTY = 10, MIN_P = 270000;
 const $ = id => document.getElementById(id);
 const priceEl = $("bottomPrice"), badgeEl = $("qtyBadge"), labelEl = $("labelText"), buyBtnEl = $("buyBtn"), toastEl = $("toast"), toTopEl = $("toTop");
 let toastTimer;
