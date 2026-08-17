@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Form Pemesanan Tiket Spectra Fest 2026 - DewaTiket.id">
+<title>Form Pemesanan | DewaTiket.id</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎫</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+:root{
+    --bg-primary:#0a0a0f;
+    --bg-card:rgba(28,28,38,.6);
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.15);
+    --text-primary:#ffffff;
+    --text-secondary:rgba(255,255,255,.72);
+    --text-muted:rgba(255,255,255,.5);
+    --accent-gold:#f5b800;
+    --accent-red:#e50024;
+    --gradient-gold:linear-gradient(135deg,#f5b800 0%,#d4950a 100%);
+    --gradient-red:linear-gradient(135deg,#e50024 0%,#990018 100%);
+    --gradient-card:linear-gradient(145deg,rgba(40,40,55,.55) 0%,rgba(20,20,28,.55) 100%);
+    --shadow-card:0 10px 30px rgba(0,0,0,.3);
+    --radius:16px;
+    --radius-lg:22px;
+    --transition:all .3s cubic-bezier(.4,0,.2,1);
+    --header-h:70px;
+    --bottom-h:90px;
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    min-height:100vh;
+    padding-bottom:calc(var(--bottom-h) + 20px);
+    overflow-x:hidden;
+    position:relative;
+    -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+    content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background-image:url('background.jpg');
+    background-size:cover;background-position:center;opacity:0.15;
+}
+
+body::after{
+    content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+        radial-gradient(circle at 18% 12%,rgba(229,0,36,.12) 0%,transparent 38%),
+        radial-gradient(circle at 82% 78%,rgba(245,184,0,.08) 0%,transparent 40%),
+        linear-gradient(180deg, rgba(10,10,15,.85), rgba(10,10,15,.95));
+}
+
+.header{
+    position:sticky;top:0;z-index:1000;
+    height:calc(var(--header-h) + var(--safe-top));
+    padding:var(--safe-top) 24px 0;
+    background:rgba(10,10,15,.75);
+    backdrop-filter:blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid var(--border);
+}
+
+.header-left,.header-right{width:80px;display:flex;align-items:center}
+.header-left{justify-content:flex-start}
+.header-right{justify-content:flex-end}
+
+.logo-img{height:32px;width:auto;display:block}
+.logo{text-decoration:none;display:flex;align-items:center}
+
+.icon-btn{
+    width:40px;height:40px;border:1px solid var(--border);
+    background:rgba(255,255,255,.03);color:#fff;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:var(--transition);font-size:16px;
+}
+.icon-btn:hover{background:rgba(255,255,255,.08);border-color:var(--border-strong)}
+
+.container{width:100%;max-width:840px;margin:auto;padding:28px 20px 40px}
+
+.step-indicator{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-bottom:28px;font-size:13px;font-weight:600;color:var(--text-muted);
+}
+.step-item{display:flex;align-items:center;gap:8px}
+.step-num{
+    width:24px;height:24px;background:rgba(255,255,255,.05);
+    border:1px solid var(--border-strong);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:12px;
+    font-family:'Sora',sans-serif;
+}
+.step-item.active{color:var(--accent-gold)}
+.step-item.active .step-num{
+    background:var(--gradient-gold);color:#000;border-color:transparent;
+    box-shadow:0 0 12px rgba(245,184,0,.4);
+}
+.step-line{width:40px;height:1px;background:var(--border-strong)}
+
+.hero-card{
+    position:relative;z-index:2;
+    background:var(--gradient-card);
+    border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:32px;text-align:center;box-shadow:var(--shadow-card);
+    margin-bottom:30px;overflow:hidden;
+}
+.hero-card::before{
+    content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+    background:radial-gradient(circle,rgba(245,184,0,.04) 0%,transparent 60%);pointer-events:none;
+}
+.hero-card h2{
+    font-family:'Sora',sans-serif;font-size:26px;font-weight:800;
+    margin-bottom:8px;letter-spacing:-1px;
+    background:var(--gradient-gold);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.hero-card p{color:var(--text-muted);font-size:13px;margin-bottom:20px;font-weight:500}
+.event-info{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;color:var(--text-secondary);font-size:13px;font-weight:500}
+.event-info div{display:flex;align-items:center;gap:8px}
+.event-info i{color:var(--accent-gold)}
+
+.form-card{
+    position:relative;background:var(--gradient-card);
+    border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:28px;margin-bottom:24px;box-shadow:var(--shadow-card);
+    opacity:0;transform:translateY(20px);animation:fadeUp .6s ease forwards;
+}
+.form-card:nth-child(3){animation-delay:.1s}
+.form-card:nth-child(4){animation-delay:.2s}
+.form-card:nth-child(5){animation-delay:.3s}
+
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.card-title{
+    font-family:'Sora',sans-serif;font-size:18px;font-weight:700;
+    margin-bottom:22px;display:flex;align-items:center;gap:12px;
+    border-bottom:1px solid var(--border);padding-bottom:16px;
+}
+.card-title i{
+    color:var(--accent-gold);font-size:16px;width:32px;height:32px;
+    background:rgba(245,184,0,.1);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:600;font-size:13px;margin-bottom:8px;color:var(--text-secondary)}
+.input-icon-wrap{position:relative;display:flex;align-items:center}
+.input-icon{
+    position:absolute;left:16px;font-size:14px;color:var(--text-muted);
+    pointer-events:none;transition:var(--transition);
+}
+input,select,textarea{
+    width:100%;padding:14px 16px 14px 46px;border-radius:var(--radius);
+    border:1px solid var(--border);background:rgba(255,255,255,.04);
+    color:var(--text-primary);font-size:15px;transition:var(--transition);
+    font-family:'Plus Jakarta Sans',sans-serif;
+}
+textarea{resize:vertical;min-height:90px;padding-left:16px;line-height:1.5}
+select{
+    appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5b800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat:no-repeat;background-position:right 16px center;background-size:16px;
+}
+select option{background:#13131a;color:#fff}
+input:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--accent-gold);background:rgba(255,255,255,.06);
+    box-shadow:0 0 0 3px rgba(245,184,0,.1);
+}
+.input-icon-wrap:focus-within .input-icon{color:var(--accent-gold)}
+input.error,select.error,textarea.error{
+    border-color:var(--accent-red);background:rgba(229,0,36,.05);
+    box-shadow:0 0 0 3px rgba(229,0,36,.1);animation:shake .4s;
+}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+.summary-row{display:flex;justify-content:space-between;padding:10px 0;font-size:14px;color:var(--text-secondary)}
+.summary-row strong{color:#fff;font-weight:600}
+.summary-row.total{font-size:16px;font-weight:700;color:#fff;border-top:1px dashed var(--border-strong);margin-top:10px;padding-top:16px}
+.summary-row.total span{color:var(--accent-gold);font-size:22px;font-weight:800;font-family:'Sora',sans-serif}
+
+.check{
+    display:flex;gap:14px;margin-top:14px;align-items:flex-start;
+    background:rgba(255,255,255,.03);padding:16px;border-radius:var(--radius);
+    border:1px solid var(--border);transition:var(--transition);cursor:pointer;
+}
+.check:hover{border-color:var(--border-strong);background:rgba(255,255,255,.05)}
+.check input{width:20px;height:20px;min-width:20px;margin-top:2px;accent-color:var(--accent-red);cursor:pointer}
+.check label{font-size:14px;color:var(--text-secondary);cursor:pointer;line-height:1.5}
+
+.bottom-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:1000;
+    background:rgba(10,10,15,.95);
+    backdrop-filter:blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
+    border-top:1px solid var(--border-strong);
+}
+.bottom-inner{
+    max-width:840px;margin:auto;height:var(--bottom-h);
+    display:flex;align-items:stretch;padding:0 20px var(--safe-bottom);
+}
+.bottom-price{flex:1;display:flex;flex-direction:column;justify-content:center;padding-right:20px}
+.bottom-label{font-size:12px;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.bottom-total{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.5px;color:#fff}
+.buy-btn{
+    align-self:center;min-width:160px;height:56px;border:0;border-radius:14px;
+    background:var(--gradient-red);color:#fff;font-size:15px;font-weight:800;
+    cursor:pointer;position:relative;overflow:hidden;transition:var(--transition);
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Sora',sans-serif;box-shadow:0 8px 24px rgba(229,0,36,.35);
+}
+.buy-btn::before{
+    content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transition:left .6s ease;
+}
+.buy-btn:hover::before{left:100%}
+.buy-btn:hover{box-shadow:0 12px 32px rgba(229,0,36,.5);transform:translateY(-1px)}
+.buy-btn:active{transform:scale(.97)}
+.buy-btn:disabled{opacity:.7;cursor:wait;transform:scale(1)}
+
+.toast{
+    position:fixed;top:calc(90px + var(--safe-top));left:50%;
+    transform:translateX(-50%) translateY(-100px);background:var(--gradient-red);color:#fff;
+    padding:14px 22px;border-radius:12px;font-size:14px;font-weight:600;
+    box-shadow:0 12px 32px rgba(229,0,36,.4);z-index:3000;opacity:0;
+    transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .4s ease;max-width:90vw;text-align:center;
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+@media(max-width:600px){
+    :root{--bottom-h:80px}
+    .header{height:60px;padding:0 18px}
+    .logo-img{height:28px}
+    .container{padding:24px 16px 40px}
+    .hero-card{padding:24px 20px}
+    .hero-card h2{font-size:22px}
+    .form-card{padding:22px 18px}
+    .bottom-total{font-size:22px}
+    .buy-btn{min-width:130px;height:48px;font-size:14px}
+    .step-indicator{font-size:11px}
+}
+:focus-visible{outline:2px solid var(--accent-gold);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <button class="icon-btn" onclick="window.history.length > 1 ? window.history.back() : location.href='index.html'" aria-label="Kembali">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+    </div>
+    <a href="index.html" class="logo"><img src="logo.png" alt="DewaTiket" class="logo-img"></a>
+    <div class="header-right">
+        <button class="icon-btn" aria-label="Bantuan" onclick="showToast('Hubungi WhatsApp: 0812-3456-7890')">
+            <i class="fa-solid fa-circle-question"></i>
+        </button>
+    </div>
+</header>
+
+<main class="container">
+    <div class="step-indicator">
+        <div class="step-item active">
+            <div class="step-num">1</div>
+            <span>Data Diri</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <span>Pembayaran</span>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <h2>Spectra Fest 2026</h2>
+        <p>Dipersembahkan oleh DewaTiket.id</p>
+        <div class="event-info">
+            <div><i class="fa-solid fa-calendar-days"></i> 05 Desember 2026</div>
+            <div><i class="fa-solid fa-location-dot"></i> Lapangan Niti Mandala Renon, Denpasar</div>
+        </div>
+    </div>
+
+    <section class="form-card">
+        <div class="card-title"><i class="fa-solid fa-receipt"></i> Ringkasan Pesanan</div>
+        <div class="summary-row"><span>Jenis Tiket</span><strong id="jenisTiket">-</strong></div>
+        <div id="detailTiket"></div>
+        <div class="summary-row"><span>Jumlah Tiket</span><strong id="jumlahTiket">0</strong></div>
+        <div class="summary-row total"><span>Total Pembayaran</span><span id="totalBayar">Rp 0</span></div>
+    </section>
+
+    <section class="form-card">
+        <div class="card-title"><i class="fa-solid fa-user-pen"></i> Data Pemesan</div>
+        <div class="form-group">
+            <label>Nama Lengkap (sesuai identitas)</label>
+            <div class="input-icon-wrap">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input id="nama" type="text" placeholder="Masukkan nama lengkap" maxlength="100" autocomplete="name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Jenis Identitas</label>
+            <div class="input-icon-wrap">
+                <i class="fa-solid fa-id-card input-icon"></i>
+                <select id="identitas">
+                    <option value="">Pilih Jenis Identitas</option>
+                    <option>KTP</option>
+                    <option>SIM</option>
+                    <option>Paspor</option>
+                    <option>Kartu Pelajar</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Nomor Identitas</label>
+            <div class="input-icon-wrap">
+                <i class="fa-solid fa-hashtag input-icon"></i>
+                <input id="nomorId" type="text" placeholder="Masukkan nomor identitas" maxlength="50">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>E-mail Aktif</label>
+            <div class="input-icon-wrap">
+                <i class="fa-solid fa-envelope input-icon"></i>
+                <input id="email" type="email" placeholder="contoh@email.com" maxlength="100" autocomplete="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>No. WhatsApp Aktif</label>
+            <div class="input-icon-wrap">
+                <i class="fa-solid fa-phone input-icon"></i>
+                <input id="wa" type="tel" placeholder="08xxxxxxxxxx" maxlength="15" autocomplete="tel">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Alamat / Tempat Tinggal</label>
+            <div class="input-icon-wrap">
+                <textarea id="alamat" placeholder="Masukkan alamat lengkap" maxlength="500"></textarea>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-card">
+        <div class="card-title"><i class="fa-solid fa-shield-halved"></i> Persetujuan</div>
+        <div class="check">
+            <input type="checkbox" id="setuju1">
+            <label for="setuju1">Data yang saya isi adalah benar dan dapat dipertanggungjawabkan.</label>
+        </div>
+        <div class="check">
+            <input type="checkbox" id="setuju2">
+            <label for="setuju2">Saya menyetujui syarat dan ketentuan acara serta kebijakan privasi.</label>
+        </div>
+    </section>
+</main>
+
+<div class="bottom-bar">
+    <div class="bottom-inner">
+        <div class="bottom-price">
+            <div class="bottom-label">Total Bayar</div>
+            <div class="bottom-total" id="bottomTotal">Rp 0</div>
+        </div>
+        <button class="buy-btn" id="lanjut">LANJUT <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+<script>
+const selectedTickets = JSON.parse(localStorage.getItem('selectedTickets') || '[]');
+const totalPrice = parseInt(localStorage.getItem('ticketTotal') || '0');
+
+const cartItems = selectedTickets.map(t => ({
+    name: t.name, 
+    qty: t.qty, 
+    harga: t.price, 
+    total: t.price * t.qty
+}));
+
+const totalQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
+
+const $ = id => document.getElementById(id);
+const namaEl = $('nama');
+const identitasEl = $('identitas');
+const nomorIdEl = $('nomorId');
+const emailEl = $('email');
+const waEl = $('wa');
+const alamatEl = $('alamat');
+const setuju1El = $('setuju1');
+const setuju2El = $('setuju2');
+const lanjutBtn = $('lanjut');
+const toastEl = $('toast');
+
+const formattedTotal = 'Rp ' + totalPrice.toLocaleString('id-ID');
+ $('totalBayar').innerText = formattedTotal;
+ $('jumlahTiket').innerText = totalQty;
+ $('bottomTotal').innerText = formattedTotal;
+
+let detailHtml = '';
+let jenisTiketText = '';
+
+if (cartItems.length > 0) {
+    cartItems.forEach(item => {
+        detailHtml += `<div class="summary-row"><span>${item.name} (${item.qty}x)</span><strong>Rp ${item.total.toLocaleString('id-ID')}</strong></div>`;
+        jenisTiketText += `${item.name} (${item.qty})<br>`;
+    });
+    $('detailTiket').innerHTML = detailHtml;
+    $('jenisTiket').innerHTML = jenisTiketText;
+} else {
+    $('jenisTiket').innerText = 'Tidak ada tiket dipilih';
+}
+
+const draftFields = [namaEl, identitasEl, nomorIdEl, emailEl, waEl, alamatEl];
+
+function saveDraft() {
+    try {
+        localStorage.setItem('draft_nama', namaEl.value);
+        localStorage.setItem('draft_identitas', identitasEl.value);
+        localStorage.setItem('draft_nomorId', nomorIdEl.value);
+        localStorage.setItem('draft_email', emailEl.value);
+        localStorage.setItem('draft_wa', waEl.value);
+        localStorage.setItem('draft_alamat', alamatEl.value);
+    } catch(e) {}
+}
+
+function restoreDraft() {
+    try {
+        namaEl.value = localStorage.getItem('draft_nama') || '';
+        identitasEl.value = localStorage.getItem('draft_identitas') || '';
+        nomorIdEl.value = localStorage.getItem('draft_nomorId') || '';
+        emailEl.value = localStorage.getItem('draft_email') || '';
+        waEl.value = localStorage.getItem('draft_wa') || '';
+        alamatEl.value = localStorage.getItem('draft_alamat') || '';
+    } catch(e) {}
+}
+
+restoreDraft();
+draftFields.forEach(el => {
+    el.addEventListener('input', saveDraft);
+    el.addEventListener('change', saveDraft);
+});
+
+let toastTimer = null;
+function showToast(message) {
+    toastEl.textContent = message;
+    toastEl.classList.add('show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3200);
+}
+
+const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const isValidPhone = phone => /^[0-9]{10,15}$/.test(phone.replace(/[\s\-+]/g, ''));
+
+lanjutBtn.onclick = function() {
+    const wajib = [namaEl, identitasEl, nomorIdEl, emailEl, waEl, alamatEl];
+    let isValid = true;
+
+    wajib.forEach(field => field.classList.remove('error'));
+
+    for (const field of wajib) {
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            isValid = false;
+        }
+    }
+
+    if (!isValid) {
+        showToast('Mohon lengkapi semua data wajib (berwarna merah).');
+        const firstError = document.querySelector('.error');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+
+    if (!isValidEmail(emailEl.value.trim())) {
+        emailEl.classList.add('error');
+        showToast('Format email tidak valid. Contoh: nama@email.com');
+        return;
+    }
+
+    if (!isValidPhone(waEl.value.trim())) {
+        waEl.classList.add('error');
+        showToast('Nomor WhatsApp tidak valid. Gunakan 10-15 digit angka.');
+        return;
+    }
+
+    if (!setuju1El.checked || !setuju2El.checked) {
+        showToast('Harap centang seluruh kotak persetujuan.');
+        return;
+    }
+
+    lanjutBtn.disabled = true;
+    lanjutBtn.innerHTML = 'MEMPROSES...';
+
+    const orderId = 'SPECTRA-' + Date.now();
+
+    const orderData = {
+        event: "Spectra Fest 2026",
+        nama: namaEl.value.trim(),
+        wa: waEl.value.trim(),
+        email: emailEl.value.trim(),
+        identitas: identitasEl.value,
+        nomor_id: nomorIdEl.value.trim(),
+        alamat: alamatEl.value.trim(),
+        detail_pesanan: cartItems,
+        jumlah_tiket: totalQty,
+        total_bayar: totalPrice
+    };
+
+    try {
+        localStorage.setItem('protix_order', JSON.stringify(orderData));
+        localStorage.setItem('orderId', orderId);
+    } catch(e) {}
+
+    setTimeout(() => {
+        window.location.href = 'qris.html';
+    }, 800);
+};
+</script>
+</body>
+</html>
